@@ -1,0 +1,9 @@
+<?PHP
+$nombre=$_POST['apellido'];
+$apellido=$_POST['apellido'];
+$correo=$_POST['correo'];
+$contrasena=$_POST['contrasena']
+
+echo "Su nombre es ".$nombre." "."y su apellido es ".$apellido." "." "."su correo electrónico es ".$correo." "."con la contraseña ".$contraseña
+
+?>
