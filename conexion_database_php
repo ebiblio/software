@@ -1,0 +1,35 @@
+<?php
+// Ejemplo de conexión a base de datos MySQL con PHP.
+
+// Datos de la base de datos
+$usuario = "biblio";
+$password = "";
+$servidor = "localhost";
+$basededatos = "conexion";
+
+// creación de la conexión a la base de datos con mysql_connect()
+$conn = mysqli_connect( $servidor, $usuario,$password,$basededatos);
+
+// verificar conexion
+if (!$conn) {
+    die("Conexión fallida".mysqli_connect_error());
+}
+echo "Conexión con éxito";
+
+// visualizar la información
+$nombre=$_POST['nombre'];
+$apellido=$_POST['apellido'];
+$direccion=$_POST['direccion'];
+$contrasenia=$_POST['contrasenia'];
+
+//Llenado de la base de datos
+$sql= "INSERT INTO conexion(nombre,apellido,direccion,contrasenia) VALUES ('$nombre', '$apellido','$direccion','$contrasenia')";
+if (mysqli_query($conn, $sql)) {
+      echo "<br> Nuevo registro creado correctamente";
+	 } else {
+      echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
+
+// cerrar conexión de base de datos
+mysqli_close($conn);
+?>
